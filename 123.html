@@ -1,151 +1,67 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>戀愛遊戲網站</title>
-    <style>
-        /* 在這裡添加CSS樣式來美化網站 */
-    </style>
-    <script>
-        function startGame() {
-            var dialogBox = document.getElementById("dialog");
-            var optionsContainer = document.getElementById("options");
-            var confirmButton = document.getElementById("confirm");
-
-            dialogBox.innerHTML = "系統：前面有個漂亮女孩，該不該去搭訕呢？";
-            optionsContainer.style.display = "block";
-            confirmButton.disabled = true;
-        }
-
-        function makeChoice(choice) {
-            var dialogBox = document.getElementById("dialog");
-            var optionsContainer = document.getElementById("options");
-            var confirmButton = document.getElementById("confirm");
-
-            if (choice === "yes") {
-                dialogBox.innerHTML = "你：是的，我要去搭訕！";
-                optionsContainer.style.display = "none";
-                confirmButton.disabled = false;
-
-                // 切換畫面
-                var imageContainer = document.getElementById("image");
-                imageContainer.src = "image2.jpg";
-
-                // 跳出對話框
-                setTimeout(function() {
-                    dialogBox.innerHTML = "系統：怎麼了嗎？";
-                    optionsContainer.style.display = "block";
-                    confirmButton.disabled = true;
-                }, 2000);
-            } else if (choice === "no") {
-                dialogBox.innerHTML = "系統：確定嗎？";
-            } else if (choice === "choice1") {
-                dialogBox.innerHTML = "你：我想約你一起去台灣客家博物館。";
-                optionsContainer.style.display = "none";
-                confirmButton.disabled = true;
-
-                // 切換畫面
-                var imageContainer = document.getElementById("image");
-                imageContainer.src = "image3.jpg";
-
-                // 跳出對話框和提示
-                setTimeout(function() {
-                    dialogBox.innerHTML = "系統：那我該找他聊什麼呢？";
-                    optionsContainer.style.display = "block";
-                    confirmButton.disabled = true;
-
-                    var inputContainer = document.getElementById("input-container");
-                    inputContainer.style.display = "block";
-                    inputContainer.innerHTML = `
-                        <label for="userInput">請輸入你想問的問題：</label>
-                        <input type="text" id="userInput">
-                        <button onclick="sendQuestion()">送出</button>
-                    `;
-                }, 2000);
-            } else if (choice === "choice2") {
-                dialogBox.innerHTML = "你：我想約你一起去維新客家文物館。";
-                optionsContainer.style.display = "none";
-                confirmButton.disabled = true;
-
-                // 切換畫面
-                var imageContainer = document.getElementById("image");
-                imageContainer.src = "image4.jpg";
-
-                // 跳出對話框和提示
-                setTimeout(function() {
-                    dialogBox.innerHTML = "系統：那我該找他聊什麼呢？";
-                    optionsContainer.style.display = "block";
-                    confirmButton.disabled = true;
-
-                    var inputContainer = document.getElementById("input-container");
-                    inputContainer.style.display = "block";
-                    inputContainer.innerHTML = `
-                        <label for="userInput">請輸入你想問的問題：</label>
-                        <input type="text" id="userInput">
-                        <button onclick="sendQuestion()">送出</button>
-                    `;
-                }, 2000);
-            }
-        }
-
-        function sendQuestion() {
-            var userInput = document.getElementById("userInput").value;
-
-            // 向ChatGPT發送問題並獲得回答
-            // 在這裡添加與ChatGPT的互動程式碼
-            var systemResponse = "ChatGPT回答的內容";
-
-            var dialogBox = document.getElementById("dialog");
-            dialogBox.innerHTML += "<br><br>" + "ChatGPT：" + systemResponse;
-
-            // 清空輸入框
-            document.getElementById("userInput").value = "";
-        }
-    </script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Under the Bridge | Template created by Dieter Schneider for www.csstemplateheaven.com</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
+
 <body>
-    <header>
-        <h1>戀愛遊戲網站</h1>
-        <nav>
-            <ul>
-                <li><a href="#">主頁</a></li>
-                <li><a href="#">遊戲列表</a></li>
-                <li><a href="#">關於我們</a></li>
-                <li><a href="#">聯絡我們</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <h2>遊戲介紹</h2>
-        <p>在這裡寫遊戲的簡短介紹和說明。</p>
+<div id="container">
 
-        <h2>選擇遊戲</h2>
-        <button onclick="startGame()">開始遊戲</button>
+<div id="header">
+<h1>Under The Bridge</h1>
+<h2>By Dieter Schneider</h2>
+</div>
 
-        <div id="dialog"></div>
 
-        <div id="options" style="display: none;">
-            <button onclick="makeChoice('yes')">要</button>
-            <button onclick="makeChoice('no')">不要</button>
-            <button onclick="makeChoice('choice1')">約台灣客家博物館</button>
-            <button onclick="makeChoice('choice2')">約維新客家文物館</button>
-        </div>
+<div id="linkbar">
+<div id="navcontainer">
+<ul id="navlist">
+<li><a href="#">Home</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Contact</a></li>
+<li><a href="#">Links</a></li>
+</ul>
+</div>
+</div>
 
-        <button id="confirm" disabled>確定</button>
 
-        <img id="image" src="image1.jpg" alt="遊戲畫面" />
 
-        <div id="input-container" style="display: none;"></div>
+<div id="content">
 
-        <h2>關於我們</h2>
-        <p>在這裡寫關於你們團隊或公司的簡介。</p>
+<div id="right_menu">
+<h4>Menu</h4>
 
-        <h2>聯絡我們</h2>
-        <p>在這裡提供聯絡方式，例如電子郵件或聯絡表單。</p>
-    </main>
+<div class="navcontainer">
+<ul class="navlist">
+<li><a href="#">a link</a></li>
+<li><a href="#">one more link</a></li>
+<li><a href="#">cool link</a></li>
+<li><a href="#">oh yes</a></li>
+<li><a href="#">ok enough links</a></li>
+</ul>
+</div>
+</div>
 
-    <footer>
-        <p>&copy; 2023 戀愛遊戲網站. All rights reserved.</p>
-    </footer>
+<h3>About this template</h3>
+
+  <p>This template is created by Dieter Schneider a cold Desember night 2006. It's valid Xhtml 1.0 Strict! If you want the PSD file for this template you can purchase it at <a href="http://www.csstemplateheaven.com">CssTemplateHeaven.com</a> for only 7$, this will give you a lot more flexibility. Please do not remove the copyright in the footer if you have the free version of this template. </p>
+  
+  <h3>Another Lorem Ipsum</h3>
+  
+  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce suscipit. Proin dignissim. Aenean elementum. Integer purus. Cras nonummy sapien ac eros. Morbi dictum, nisi quis ullamcorper ultricies, lacus elit bibendum arcu, in imperdiet orci purus gravida dolor. Sed lacus. In commodo, purus id iaculis mollis, nulla ipsum euismod justo, eu volutpat velit lacus sit amet quam. Donec bibendum mi et orci. Duis laoreet aliquet nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce massa arcu, mollis id, ornare et, convallis vitae, libero. Nulla commodo augue in odio. Suspendisse potenti.</p>
+  
+    <h3>Another Lorem Ipsum</h3>
+  
+  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce suscipit. Proin dignissim. Aenean elementum. Integer purus. Cras nonummy sapien ac eros. Morbi dictum, nisi quis ullamcorper ultricies, lacus elit bibendum arcu, in imperdiet orci purus gravida dolor. Sed lacus. In commodo, purus id iaculis mollis, nulla ipsum euismod justo, eu volutpat velit lacus sit amet quam. Donec bibendum mi et orci. Duis laoreet aliquet nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce massa arcu, mollis id, ornare et, convallis vitae, libero. Nulla commodo augue in odio. Suspendisse potenti.</p>
+</div>
+
+
+<div id="footer">
+<p>&copy; <a href="http://csstemplateheaven.com">CssTemplateHeaven</a> | Created by Dieter Schneider 2006 | Valid Xhtml 1.0 Strict! </p>
+</div>
+</div>
 </body>
 </html>
