@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>戀愛遊戲網站</title>
+    <style>
+        /* 在這裡添加CSS樣式來美化網站 */
+    </style>
+    <script>
+        function startGame() {
+            var dialogBox = document.getElementById("dialog");
+            var optionsContainer = document.getElementById("options");
+            var confirmButton = document.getElementById("confirm");
+
+            dialogBox.innerHTML = "系統：前面有個漂亮女孩，該不該去搭訕呢？";
+            optionsContainer.style.display = "block";
+            confirmButton.disabled = true;
+        }
+
+        function makeChoice(choice) {
+            var dialogBox = document.getElementById("dialog");
+            var optionsContainer = document.getElementById("options");
+            var confirmButton = document.getElementById("confirm");
+
+            if (choice === "yes") {
+                dialogBox.innerHTML = "你：是的，我要去搭訕！";
+                optionsContainer.style.display = "none";
+                confirmButton.disabled = false;
+
+                // 切換畫面
+                var imageContainer = document.getElementById("image");
+                imageContainer.src = "image2.jpg";
+
+                // 跳出對話框
+                setTimeout(function() {
+                    dialogBox.innerHTML = "系統：怎麼了嗎？";
+                    optionsContainer.style.display = "block";
+                    confirmButton.disabled = true;
+                }, 2000);
+            } else if (choice === "no") {
+                dialogBox.innerHTML = "系統：確定嗎？";
+            } else if (choice === "choice1") {
+                dialogBox.innerHTML = "你：我想約你一起去台灣客家博物館。";
+                optionsContainer.style.display = "none";
+                confirmButton.disabled = true;
+
+                // 切換畫面
+                var imageContainer = document.getElementById("image");
+                imageContainer.src = "image3.jpg";
+
+                // 跳出對話框和提示
+                setTimeout(function() {
+                    dialogBox.innerHTML = "系統：那我該找他聊什麼呢？";
+                    optionsContainer.style.display = "block";
+                    confirmButton.disabled = true;
+
+                    var inputContainer = document.getElementById("input-container");
+                    inputContainer.style.display = "block";
+                    inputContainer.innerHTML = `
+                        <label for="userInput">請輸入你想問的問題：</label>
+                        <input type="text" id="userInput">
+                        <button onclick="sendQuestion()">送出</button>
+                    `;
+                }, 2000);
+            } else if (choice === "choice2") {
+                dialogBox.innerHTML = "你：我想約你一起去維新客家文物館。";
+                optionsContainer.style.display = "none";
+                confirmButton.disabled = true;
+
+                // 切換畫面
+                var imageContainer = document.getElementById("image");
+                imageContainer.src = "image4.jpg";
+
+                // 跳出對話框和提示
+                setTimeout(function() {
+                    dialogBox.innerHTML = "系統：那我該找他聊什麼呢？";
+                    optionsContainer.style.display = "block";
+                    confirmButton.disabled = true;
+
+                    var inputContainer = document.getElementById("input-container");
+                    inputContainer.style.display = "block";
+                    inputContainer.innerHTML = `
+                        <label for="userInput">請輸入你想問的問題：</label>
+                        <input type="text" id="userInput">
+                        <button onclick="sendQuestion()">送出</button>
+                    `;
+                }, 2000);
+            }
+        }
+
+        function sendQuestion() {
+            var userInput = document.getElementById("userInput").value;
+
+            // 向ChatGPT發送問題並獲得回答
+            // 在這裡添加與ChatGPT的互動程式碼
+            var systemResponse = "ChatGPT回答的內容";
+
+            var dialogBox = document.getElementById("dialog");
+            dialogBox.innerHTML += "<br><br>" + "ChatGPT：" + systemResponse;
+
+            // 清空輸入框
+            document.getElementById("userInput").value = "";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>戀愛遊戲網站</h1>
+        <nav>
+            <ul>
+                <li><a href="#">主頁</a></li>
+                <li><a href="#">遊戲列表</a></li>
+                <li><a href="#">關於我們</a></li>
+                <li><a href="#">聯絡我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>遊戲介紹</h2>
+        <p>在這裡寫遊戲的簡短介紹和說明。</p>
+
+        <h2>選擇遊戲</h2>
+        <button onclick="startGame()">開始遊戲</button>
+
+        <div id="dialog"></div>
+
+        <div id="options" style="display: none;">
+            <button onclick="makeChoice('yes')">要</button>
+            <button onclick="makeChoice('no')">不要</button>
+            <button onclick="makeChoice('choice1')">約台灣客家博物館</button>
+            <button onclick="makeChoice('choice2')">約維新客家文物館</button>
+        </div>
+
+        <button id="confirm" disabled>確定</button>
+
+        <img id="image" src="image1.jpg" alt="遊戲畫面" />
+
+        <div id="input-container" style="display: none;"></div>
+
+        <h2>關於我們</h2>
+        <p>在這裡寫關於你們團隊或公司的簡介。</p>
+
+        <h2>聯絡我們</h2>
+        <p>在這裡提供聯絡方式，例如電子郵件或聯絡表單。</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 戀愛遊戲網站. All rights reserved.</p>
+    </footer>
+</body>
+</html>
